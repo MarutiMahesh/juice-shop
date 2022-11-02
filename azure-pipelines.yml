@@ -43,4 +43,4 @@ stages:
         azureSubscription: 'MarutiSC'
         scriptType: 'bash'
         scriptLocation: 'inlineScript'
-        inlineScript: 'sudo az acr build --image marutimaheshjuiceshop:1 --registry maruticr.azurecr.io .'
+        inlineScript: 'az acr build --image marutimaheshjuiceshop:1 --registry maruticr.azurecr.io .'
