@@ -37,3 +37,12 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'MarutiSC'
+        appType: 'webAppContainer'
+        WebAppName: 'testjuiceshop'
+        DockerNamespace: 'maruticr.azurecr.io'
+        DockerRepository: 'marutimaheshjuiceshop'
+        DockerImageTag: 'latest'
