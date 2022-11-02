@@ -28,21 +28,19 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-    - task: Docker@2
-      displayName: Build and push an image to container registry
+    # - task: Docker@2
+    #   displayName: Build and push an image to container registry
+    #   inputs:
+    #     command: buildAndPush
+    #     repository: $(imageRepository)
+    #     dockerfile: $(dockerfilePath)
+    #     containerRegistry: $(dockerRegistryServiceConnection)
+    #     tags: |
+    #       $(tag)
+    
+    - task: AzureCLI@2
       inputs:
-        command: buildAndPush
-        repository: $(imageRepository)
-        dockerfile: $(dockerfilePath)
-        containerRegistry: $(dockerRegistryServiceConnection)
-        tags: |
-          $(tag)
-    - task: AzureRmWebAppDeployment@4
-      inputs:
-        ConnectionType: 'AzureRM'
         azureSubscription: 'MarutiSC'
-        appType: 'webAppContainer'
-        WebAppName: 'testjuiceshop'
-        DockerNamespace: 'maruticr.azurecr.io'
-        DockerRepository: 'marutimaheshjuiceshop'
-        DockerImageTag: 'latest'
+        scriptType: 'ps'
+        scriptLocation: 'inlineScript'
+        inlineScript: 'sudo az acr build --image marutimaheshjuiceshop:1 --registry maruticr.azurecr.io .'
