@@ -44,3 +44,11 @@ stages:
         scriptType: 'bash'
         scriptLocation: 'inlineScript'
         inlineScript: 'az acr build --image marutimaheshjuiceshop:1 --registry maruticr.azurecr.io .'
+    - task: AzureCLI@2
+      inputs:
+        azureSubscription: 'MarutiSC'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          az acr login -n maruticr.azurecr.io
+          docker run -d -p 80:3000 maruticr.azurecr.io/marutimaheshjuiceshop:1
