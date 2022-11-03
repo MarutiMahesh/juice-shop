@@ -25,7 +25,8 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    pool: marutiagentpool
+    pool:
+     name: Default
       # vmImage: $(vmImageName)
     steps:
     # - task: Docker@2
