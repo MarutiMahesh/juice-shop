@@ -17,7 +17,8 @@ variables:
   tag: 'latest'
 
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  # vmImageName: 'ubuntu-latest'
+  name: 'marutiagentpool'
 
 stages:
 - stage: Build
