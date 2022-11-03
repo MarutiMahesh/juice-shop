@@ -39,12 +39,12 @@ stages:
     #     tags: |
     #       $(tag)
     
-    - task: AzureCLI@2
-      inputs:
-        azureSubscription: 'MarutiSC'
-        scriptType: 'bash'
-        scriptLocation: 'inlineScript'
-        inlineScript: 'az acr build --image marutimaheshjuiceshop:1 --registry maruticr.azurecr.io .'
+    # - task: AzureCLI@2
+    #   inputs:
+    #     azureSubscription: 'MarutiSC'
+    #     scriptType: 'bash'
+    #     scriptLocation: 'inlineScript'
+    #     inlineScript: 'az acr build --image marutimaheshjuiceshop:1 --registry maruticr.azurecr.io .'
     - task: AzureCLI@2
       inputs:
         azureSubscription: 'MarutiSC'
