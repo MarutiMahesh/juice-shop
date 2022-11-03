@@ -52,4 +52,8 @@ stages:
         scriptLocation: 'inlineScript'
         inlineScript: |
           az acr login -n maruticr.azurecr.io
+          echo "logged into acr"
+          docker pull maruticr.azurecr.io/marutimaheshjuiceshop:1
+          docker images
+          echo "pulled image from acr"
           docker run -d -p 80:3000 maruticr.azurecr.io/marutimaheshjuiceshop:1
