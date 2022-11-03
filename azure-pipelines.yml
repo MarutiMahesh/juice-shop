@@ -18,7 +18,7 @@ variables:
 
   # Agent VM image name
   # vmImageName: 'ubuntu-latest'
-  # pool: marutilinux
+  name: marutilinux
 
 stages:
 - stage: Build
