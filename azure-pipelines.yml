@@ -18,7 +18,7 @@ variables:
 
   # Agent VM image name
   # vmImageName: 'ubuntu-latest'
-  name: 'marutiagentpool'
+  agentname: marutilinux
 
 stages:
 - stage: Build
@@ -26,8 +26,8 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    pool:
-      vmImage: $(name)
+    pool: $(agentname)
+      # vmImage: $(name)
     steps:
     # - task: Docker@2
     #   displayName: Build and push an image to container registry
